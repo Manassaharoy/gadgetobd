@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %} Create New Account {% endblock %}
+{% block body_block %}
+<h2>Create New Account:</h2>
+
+<form method="POST">
+
+    {% comment %} <input type="hidden" name="csrfmiddlewaretoken" value="u74SRVrpvbPbpnmaPva0wlFYi846hTrnsCuE1sMxtIz26lVDdkXj71P7yc9qvG06"> {% endcomment %}
+    {% csrf_token %}
+
+    <div id="div_id_email" class="form-group">
+        <label for="id_email" class=" requiredField">Email<span class="asteriskField">*</span> </label> 
+        <div> <input type="email" name="email" maxlength="254" autofocus class="emailinput form-control" required id="id_email"> 
+        </div> 
+    </div> 
+        <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">Password<span class="asteriskField">*</span> </label> 
+            <div> <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required id="id_password1"> 
+                {% comment %} <small id="hint_id_password1" class="form-text text-muted">
+                    <ul><li>Your password can’t be too similar to your other personal information.</li>
+                        <li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li>
+                        <li>Your password can’t be entirely numeric.</li>
+                    </ul>
+                </small>  {% endcomment %}
+            </div> 
+        </div> 
+        <div id="div_id_password2" class="form-group"> 
+            <label for="id_password2" class=" requiredField">Password confirmation<span class="asteriskField">*</span> </label> 
+            <div> 
+                <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required id="id_password2"> 
+                {% comment %} <small id="hint_id_password2" class="form-text text-muted">Enter the same password as before, for verification.</small> {% endcomment %}
+             </div> 
+            </div>
+    
+    <button type="submit" class="btn btn-success btn-block">Create Account</button>
+    </form>
+
+
+<br>
+<p>Already have an account? <a href="{% url 'App_Login:login' %}">Login Here</a></p>
+{% endblock %}

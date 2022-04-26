@@ -1,0 +1,36 @@
+Create django project:
+    - create teamplate, static, media directory and update settings.py
+    - static files update in urls.py
+
+create App_Login, App_Shop:
+    - urls include in main project urls.py
+    
+    ## App_Login:
+        - create custom user model to make email as primary instead of username
+        - create profile model
+        - make auto create profile model object when a user is created
+
+        - setting.py -> define custom_user_model
+
+        - forms.py created 
+        - views.py -> login, register, logout, profile
+        - teamplates
+
+    ## App_Shop:
+        - models.py create models
+        - admin.py register the created models
+        - urls.py generate urls
+        - edit the templates 
+        - views to show products and details
+
+    create    
+    ## App_Order:
+
+        - models.py create models
+        - tags.py for custom tag 
+        - admin register
+        - views.py
+        - urls.py
+        - templates
+    create
+    ## App_Payment :

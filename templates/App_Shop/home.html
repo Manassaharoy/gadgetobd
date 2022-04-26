@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+<div class=" jumbotron rounded">
+  <div class="container">
+    <h1 class="display-4">GadgetoBD</h1>
+    <p class="lead">Browse and order your desired product. For any kind of querry contact us from here:</p>
+    <a href="https://www.facebook.com/groups/952566405084911" target="black"><button class="btn btn-info">Facebook group <i class="fa fa-arrow-right"></i></i></button></a>
+  </div>
+</div>
+
+{% endblock jumbotron %}
+
+{% block body_block %}
+
+
+<div class="container my-5 p-3">
+
+  <div class="row">
+    {% for product in object_list %}
+    {% comment %} <div class="col-md-6 col-sm-12 col-lg-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="/media/{{product.mainimage}}" style="width:100%; height:300px;">
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title"><a href="{% url 'App_Shop:product_detail' pk=product.pk %}">{{product.name}}</a></h6>
+          <div class="action-wrap">
+            <div class="price-wrap h5">
+              <span class="price-new">&#2547; {{product.price|floatformat:2}}</span>
+              <span class="price-old"><strike>&#2547; {{product.old_price|floatformat:2}}</strike></span>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </div> {% endcomment %}
+
+    <div class="col-md-6 col-sm-12 col-lg-4">
+    <div class="card" style="width: 20rem;">
+      <img src="/media/{{product.mainimage}}" class="card-img-top" style="width:100%; height:300px;" alt="{{product.mainimage}}">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text"><span class="price-new">&#2547; {{product.price|floatformat:2}}</span>
+          <span class="price-old"><strike>&#2547; {{product.old_price|floatformat:2}}</strike></span></p>
+        <a href="{% url 'App_Shop:product_detail' pk=product.pk %}" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+    <br>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

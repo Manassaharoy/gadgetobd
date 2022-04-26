@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %} Login {% endblock %}
+{% block body_block %}
+<h2>Login:</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+
+<div id="div_id_username" class="form-group"> 
+
+            <div> 
+                <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="254" class="textinput textInput form-control" required id="id_username" placeholder="Email"> 
+            </div> 
+        </div> 
+        <div id="div_id_password" class="form-group"> 
+            
+            <div> 
+                <input type="password" name="password" autocomplete="current-password" class="textinput textInput form-control" required id="id_password" placeholder="Password"> 
+            </div> 
+        </div>
+
+<button type="submit" class="btn btn-primary btn-block">Login</button>
+</form>
+
+
+<br>
+<p>Don't have an account? <a href="{% url 'App_Login:signup' %}">Create New Account</a></p>
+{% endblock %}
